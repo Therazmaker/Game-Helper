@@ -1,0 +1,112 @@
+{
+  "id": "tlou1",
+  "title": "THE LAST OF US PART I",
+  "platform": "PS5",
+  "totalEstMin": 900,
+  "chapters": [
+    {
+      "id": 0,
+      "name": "PRÓLOGO",
+      "subtitle": "La noche del brote — 2013",
+      "segments": [
+        { "id": "p1", "name": "Joel y Sarah en casa / TV del brote", "est": 15 },
+        { "id": "p2", "name": "Escape en coche por la ciudad", "est": 12 },
+        { "id": "p3", "name": "A pie entre el caos — encuentro final", "est": 18 }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "CAP 1 · BOSTON QZ",
+      "subtitle": "Zona de cuarentena — 20 años después",
+      "segments": [
+        { "id": "b1", "name": "Patrol con Tess, sigilo callejero", "est": 25 },
+        { "id": "b2", "name": "Recuperar el alijo con Robert", "est": 20 },
+        { "id": "b3", "name": "Marlene y el trato / conocer a Ellie", "est": 15 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "CAP 2 · AFUERAS DE BOSTON",
+      "subtitle": "Cruzando la zona prohibida",
+      "segments": [
+        { "id": "o1", "name": "Túneles del metro bajo Boston", "est": 28 },
+        { "id": "o2", "name": "Zona verde — edificio de oficinas", "est": 22 },
+        { "id": "o3", "name": "Hotel abandonado — clickers", "est": 30 }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "CAP 3 · EL PUEBLO DE BILL",
+      "subtitle": "Lincoln, Massachusetts",
+      "segments": [
+        { "id": "w1", "name": "Llegada al pueblo / trampas de Bill", "est": 22 },
+        { "id": "w2", "name": "Casa de suministros con Bill", "est": 18 },
+        { "id": "w3", "name": "Bar y garaje — conseguir el coche", "est": 28 }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "CAP 4 · PITTSBURGH",
+      "subtitle": "Los Cazadores",
+      "segments": [
+        { "id": "pi1", "name": "Emboscada en el puente / camión", "est": 18 },
+        { "id": "pi2", "name": "Centro ciudad entre cazadores", "est": 32 },
+        { "id": "pi3", "name": "Hotel — encuentro con Henry y Sam", "est": 22 },
+        { "id": "pi4", "name": "Ruta de escape con Henry y Sam", "est": 25 }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "CAP 5 · LOS SUBURBIOS",
+      "subtitle": "Pittsburgh — afueras",
+      "segments": [
+        { "id": "su1", "name": "Alcantarilla — infectados densos", "est": 28 },
+        { "id": "su2", "name": "Vecindario con Henry y Sam", "est": 22 },
+        { "id": "su3", "name": "Clímax — final de Henry y Sam", "est": 14 }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "CAP 6 · TOMMY",
+      "subtitle": "Wyoming — La presa de Jackson",
+      "segments": [
+        { "id": "t1", "name": "A caballo por el campo abierto", "est": 18 },
+        { "id": "t2", "name": "La presa / reunión con Tommy", "est": 22 },
+        { "id": "t3", "name": "Defensa de la presa (oleadas)", "est": 28 }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "CAP 7 · LA UNIVERSIDAD",
+      "subtitle": "Colorado — Campus universitario",
+      "segments": [
+        { "id": "u1", "name": "Cruzar el campus en moto", "est": 18 },
+        { "id": "u2", "name": "Laboratorios de las Luciérnagas", "est": 22 },
+        { "id": "u3", "name": "Huida del campus / Joel herido", "est": 18 }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "CAP 8 · INVIERNO",
+      "subtitle": "Ellie sola — Los de David",
+      "segments": [
+        { "id": "i1", "name": "Ellie caza en el bosque nevado", "est": 22 },
+        { "id": "i2", "name": "Negociación con David / trampa", "est": 18 },
+        { "id": "i3", "name": "Restaurante — escape de Ellie", "est": 28 },
+        { "id": "i4", "name": "Joel se despierta / reencuentro", "est": 12 }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "CAP 9 · PRIMAVERA",
+      "subtitle": "Salt Lake City — El hospital",
+      "segments": [
+        { "id": "sp1", "name": "Camino al hospital / las jirafas", "est": 18 },
+        { "id": "sp2", "name": "Subterráneo inundado", "est": 22 },
+        { "id": "sp3", "name": "Hospital Luciérnagas — infiltración", "est": 28 },
+        { "id": "sp4", "name": "El quirófano — la decisión de Joel", "est": 18 },
+        { "id": "sp5", "name": "Escape y epílogo — cierre del juego", "est": 16 }
+      ]
+    }
+  ]
+}

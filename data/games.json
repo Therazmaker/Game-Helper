@@ -1,0 +1,11 @@
+[
+  {
+    "id": "tlou1",
+    "title": "The Last of Us Part I",
+    "platform": "PS5",
+    "file": "data/tlou1.json",
+    "coverColor": "#1a8a35",
+    "coverUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0720/eEczyEMDd2BLa3dtkGJVE9Id.png",
+    "totalEstMin": 900
+  }
+]

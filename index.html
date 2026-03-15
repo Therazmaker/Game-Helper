@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d120e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GameTracker">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<title>Game Time Tracker // HUD</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="hud-corner tl"></div>
+<div class="hud-corner tr"></div>
+<div class="hud-corner bl"></div>
+<div class="hud-corner br"></div>
+
+<!-- ════════ SCREEN: SELECT ════════ -->
+<div id="screen-select">
+  <div style="text-align:center; padding:48px 24px 28px;">
+    <div style="font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:var(--green);letter-spacing:6px;text-shadow:0 0 24px rgba(61,255,110,0.4)">
+      GAME TRACKER
+    </div>
+    <div style="font-size:9px;color:var(--muted);letter-spacing:5px;margin-top:6px;">
+      // SESSION OPTIMIZER // HUD v1.0
+    </div>
+  </div>
+  <div style="max-width:900px;margin:0 auto;padding:0 24px 40px;">
+    <div style="font-size:9px;color:var(--muted);letter-spacing:4px;margin-bottom:16px;">// SELECCIONA UN JUEGO</div>
+    <div class="game-grid" id="game-grid">
+      <div style="color:var(--muted);font-size:11px;padding:20px;">Cargando...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ SCREEN: TRACKER ════════ -->
+<div id="screen-tracker" style="display:none">
+
+  <header class="hud-header">
+    <div class="hud-title" onclick="goHome()" title="Volver al inicio">
+      GAME TRACKER
+      <span id="game-subtitle">// PS5 SESSION HUD</span>
+    </div>
+    <div class="hud-stats">
+      <div class="stat-block">
+        <div class="stat-label">COMPLETADO</div>
+        <div class="stat-value green" id="pct-done">0%</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">JUGADO</div>
+        <div class="stat-value" id="total-played">0min</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">RESTANTE</div>
+        <div class="stat-value red" id="total-remaining">—</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="session-bar">
+    <div class="session-label">SESIÓN</div>
+    <div class="session-timer-display" id="session-display">00:00</div>
+    <div class="session-progress-wrap">
+      <div class="session-progress-fill" id="session-progress" style="width:0%"></div>
+    </div>
+    <div class="session-target">
+      <span class="session-label">META</span>
+      <select id="session-target-select" onchange="updateSessionTarget()">
+        <option value="30">30 min</option>
+        <option value="45" selected>45 min</option>
+        <option value="60">60 min</option>
+        <option value="90">90 min</option>
+      </select>
+    </div>
+    <button class="btn active" id="timer-btn" onclick="toggleTimer()">▶ INICIAR</button>
+    <button class="btn danger" onclick="resetTimer()">↺ RESET</button>
+  </div>
+
+  <div class="main">
+    <aside class="sidebar">
+      <div class="sidebar-title">// CAPÍTULOS</div>
+      <div id="chapter-nav"></div>
+    </aside>
+    <main class="content" id="main-content"></main>
+  </div>
+
+</div>
+
+<div class="notify" id="notify"></div>
+
+<script>
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log('SW registered'))
+      .catch(e => console.warn('SW failed:', e));
+  });
+}
+</script>
+<script src="js/tracker.js"></script>
+<script src="js/select.js"></script>
+</body>
+</html>
