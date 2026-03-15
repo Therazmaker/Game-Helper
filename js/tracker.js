@@ -1,6 +1,6 @@
 // ─── STATE ───────────────────────────────────────────────────────────────────
-let gameData = null;          // loaded from JSON
-let state = null;             // per-game save state
+let gameData = null;
+let state = null;
 
 let timerInterval = null;
 let sessionRunning = false;
@@ -9,14 +9,21 @@ let sessionTarget = 45;
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 async function loadGame(gameId, filePath) {
+  log('loadGame: ' + gameId + ' from ' + filePath, 'info');
   try {
     const res = await fetch(filePath);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     gameData = await res.json();
+    log('game JSON cargado: ' + gameData.title, 'ok');
     state = loadState(gameId);
+    log('state cargado, capítulos: ' + gameData.chapters.length, 'ok');
     showScreen('tracker');
+    log('screen-tracker visible', 'ok');
     updateTimerDisplay();
     renderAll();
+    log('render completo', 'ok');
   } catch (e) {
+    log('loadGame ERROR: ' + e.message, 'error');
     alert('Error cargando el juego: ' + e.message);
   }
 }
@@ -39,11 +46,17 @@ function save() {
 
 // ─── SCREENS ──────────────────────────────────────────────────────────────────
 function showScreen(name) {
-  document.getElementById('screen-select').style.display  = name === 'select'  ? '' : 'none';
-  document.getElementById('screen-tracker').style.display = name === 'tracker' ? '' : 'none';
+  log('showScreen: ' + name, 'info');
+  const sel = document.getElementById('screen-select');
+  const trk = document.getElementById('screen-tracker');
+  if (!sel || !trk) { log('showScreen: elementos no encontrados!', 'error'); return; }
+  sel.style.setProperty('display', name === 'select' ? 'block' : 'none', 'important');
+  trk.style.setProperty('display', name === 'tracker' ? 'block' : 'none', 'important');
+  log('screens actualizados', 'ok');
 }
 
 function goHome() {
+  log('goHome()', 'info');
   stopTimer();
   gameData = null;
   state = null;
@@ -114,7 +127,6 @@ function updateGlobalStats() {
                            .reduce((a, s) => a + (state.completedSegs[s.id]?.actual || s.est), 0);
   const grandTotal = gameData.chapters.reduce((a, c) => a + c.segments.reduce((b, s) => b + s.est, 0), 0);
   const remaining  = Math.max(0, grandTotal - doneMins);
-
   setText('pct-done',        pct + '%');
   setText('total-played',    fmtMin(playedMin));
   setText('total-remaining', '~' + fmtMin(remaining));
@@ -123,6 +135,7 @@ function updateGlobalStats() {
 // ─── SIDEBAR NAV ──────────────────────────────────────────────────────────────
 function renderNav() {
   const nav = document.getElementById('chapter-nav');
+  if (!nav) { log('chapter-nav no encontrado', 'error'); return; }
   nav.innerHTML = '';
   gameData.chapters.forEach(ch => {
     const done    = ch.segments.filter(s => state.completedSegs[s.id]?.done).length;
@@ -209,7 +222,6 @@ function renderContent() {
 
   html += `</div>`;
 
-  // Session log for this chapter
   const chIds = new Set(ch.segments.map(s => s.id));
   const logs  = state.sessionLog.filter(l => chIds.has(l.seg)).slice().reverse().slice(0, 8);
   html += `<div class="session-log"><div class="log-title">// REGISTRO DE SESIONES</div>`;
@@ -226,7 +238,6 @@ function renderContent() {
     });
   }
   html += `</div>`;
-
   document.getElementById('main-content').innerHTML = html;
 }
 
@@ -245,11 +256,7 @@ function confirmDone(segId) {
   state.completedSegs[segId].actual = actual;
   if (!state.completedSegs[segId].note) state.completedSegs[segId].note = '';
   const now = new Date();
-  state.sessionLog.push({
-    seg: segId,
-    dur: actual,
-    ts: pad(now.getHours()) + ':' + pad(now.getMinutes())
-  });
+  state.sessionLog.push({ seg: segId, dur: actual, ts: pad(now.getHours()) + ':' + pad(now.getMinutes()) });
   save();
   notify('✓ COMPLETADO — ' + actual + 'min registrados');
   renderAll();
@@ -257,39 +264,30 @@ function confirmDone(segId) {
 
 function undoSeg(segId) {
   if (state.completedSegs[segId]) state.completedSegs[segId].done = false;
-  save();
-  notify('↺ MARCADO PENDIENTE');
-  renderAll();
+  save(); notify('↺ MARCADO PENDIENTE'); renderAll();
 }
 
 function toggleNote(segId) {
-  const area = document.getElementById('note-' + segId);
-  if (area) area.classList.toggle('open');
+  document.getElementById('note-' + segId)?.classList.toggle('open');
 }
 
 function saveNote(segId, val) {
   if (!state.completedSegs[segId]) state.completedSegs[segId] = { done: false, actual: null, note: '' };
   state.completedSegs[segId].note = val.trim();
-  save();
-  notify('📝 NOTA GUARDADA');
+  save(); notify('📝 NOTA GUARDADA');
 }
 
 // ─── NOTIFY ───────────────────────────────────────────────────────────────────
 let nTimeout;
 function notify(msg) {
   const el = document.getElementById('notify');
-  el.textContent = msg;
-  el.classList.add('show');
+  el.textContent = msg; el.classList.add('show');
   clearTimeout(nTimeout);
   nTimeout = setTimeout(() => el.classList.remove('show'), 2200);
 }
 
 // ─── RENDER ALL ───────────────────────────────────────────────────────────────
-function renderAll() {
-  renderNav();
-  renderContent();
-  updateGlobalStats();
-}
+function renderAll() { renderNav(); renderContent(); updateGlobalStats(); }
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function fmtMin(m) {

@@ -1,7 +1,6 @@
 // ─── GAME SELECT SCREEN ───────────────────────────────────────────────────────
 let gamesData = [];
 
-// Fallback inline data in case fetch fails (GitHub Pages path issues)
 const GAMES_FALLBACK = [
   {
     "id": "tlou1",
@@ -15,28 +14,45 @@ const GAMES_FALLBACK = [
 ];
 
 async function initSelectScreen() {
+  log('initSelectScreen() llamado', 'info');
+
+  // Force screen visible
+  const sel = document.getElementById('screen-select');
+  if (sel) {
+    sel.style.setProperty('display', 'block', 'important');
+    log('screen-select forzado a block', 'ok');
+  } else {
+    log('screen-select NO ENCONTRADO en DOM', 'error');
+  }
+
   try {
-    // Try relative path first, then absolute from repo root
+    log('fetching games.json...', 'info');
     let res;
     try {
       res = await fetch('./data/games.json');
-      if (!res.ok) throw new Error('not ok');
-    } catch {
+      if (!res.ok) throw new Error('status ' + res.status);
+    } catch(e1) {
+      log('fetch ./data/ falló: ' + e1.message + ' — reintentando', 'warn');
       res = await fetch('data/games.json');
     }
     if (!res.ok) throw new Error('HTTP ' + res.status);
     gamesData = await res.json();
+    log('games.json OK — ' + gamesData.length + ' juego(s)', 'ok');
   } catch (e) {
-    console.warn('games.json fetch failed, using fallback:', e.message);
+    log('games.json FAIL: ' + e.message + ' — usando fallback', 'warn');
     gamesData = GAMES_FALLBACK;
   }
+
+  log('renderizando cards...', 'info');
   renderGameCards(gamesData);
+  log('cards renderizadas', 'ok');
 }
 
 function renderGameCards(games) {
   const grid = document.getElementById('game-grid');
-  if (!grid) return;
+  if (!grid) { log('game-grid NO ENCONTRADO', 'error'); return; }
   grid.innerHTML = '';
+  log('game-grid encontrado, construyendo ' + games.length + ' card(s)', 'info');
 
   games.forEach(g => {
     const savedCover = localStorage.getItem('cover_' + g.id);
@@ -59,14 +75,17 @@ function renderGameCards(games) {
           <span>~${fmtMinSelect(g.totalEstMin)}</span>
           ${pct > 0 ? ` · <span style="color:var(--green)">${pct}% completado</span>` : ''}
         </div>
-        ${pct > 0 ? `<div class="card-progress-bar">
-          <div style="height:100%;width:${pct}%;background:var(--green-dim);box-shadow:0 0 4px var(--green)"></div>
-        </div>` : ''}
       </div>`;
 
-    card.querySelector('.game-card-body').addEventListener('click', () => loadGame(g.id, g.file));
+    card.querySelector('.game-card-body').addEventListener('click', () => {
+      log('card clickeada: ' + g.id, 'info');
+      loadGame(g.id, g.file);
+    });
     card.querySelector('.game-card-cover').addEventListener('click', (e) => {
-      if (!e.target.classList.contains('cover-edit-btn')) loadGame(g.id, g.file);
+      if (!e.target.classList.contains('cover-edit-btn')) {
+        log('cover clickeada: ' + g.id, 'info');
+        loadGame(g.id, g.file);
+      }
     });
     card.querySelector('.cover-edit-btn').addEventListener('click', (e) => {
       e.stopPropagation();
@@ -74,12 +93,12 @@ function renderGameCards(games) {
     });
 
     grid.appendChild(card);
+    log('card añadida: ' + g.title, 'ok');
   });
 
-  // Add placeholder
   const add = document.createElement('div');
   add.className = 'add-game-card';
-  add.innerHTML = `<div class="add-icon">+</div><div>AGREGAR JUEGO</div><div style="font-size:9px;margin-top:4px;opacity:.5">via JSON</div>`;
+  add.innerHTML = `<div class="add-icon">+</div><div>AGREGAR JUEGO</div>`;
   grid.appendChild(add);
 }
 
@@ -97,9 +116,7 @@ function openCoverModal(gameId) {
       <div class="cover-modal-title">// PORTADA — URL DE IMAGEN</div>
       <div class="cover-modal-hint">Pega la URL de cualquier imagen (JPG, PNG, WEBP)</div>
       <div class="cover-preview-wrap" id="cover-preview-wrap">
-        ${current
-          ? `<img src="${current}" alt="preview">`
-          : `<div class="cover-no-preview">Sin imagen</div>`}
+        ${current ? `<img src="${current}" alt="preview">` : `<div class="cover-no-preview">Sin imagen</div>`}
       </div>
       <input class="cover-url-input" id="cover-url-input" type="text"
         placeholder="https://example.com/portada.jpg" value="${current}">
@@ -158,4 +175,7 @@ function fmtMinSelect(m) {
   return m + 'min';
 }
 
-window.addEventListener('DOMContentLoaded', initSelectScreen);
+window.addEventListener('DOMContentLoaded', () => {
+  log('DOMContentLoaded fired', 'ok');
+  initSelectScreen();
+});

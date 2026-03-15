@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0d120e">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="GameTracker">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -20,15 +19,11 @@
 <div class="hud-corner bl"></div>
 <div class="hud-corner br"></div>
 
-<!-- ════════ SCREEN: SELECT ════════ -->
+<!-- SCREEN: SELECT -->
 <div id="screen-select">
-  <div style="text-align:center; padding:48px 24px 28px;">
-    <div style="font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:var(--green);letter-spacing:6px;text-shadow:0 0 24px rgba(61,255,110,0.4)">
-      GAME TRACKER
-    </div>
-    <div style="font-size:9px;color:var(--muted);letter-spacing:5px;margin-top:6px;">
-      // SESSION OPTIMIZER // HUD v1.0
-    </div>
+  <div style="text-align:center;padding:48px 24px 28px;">
+    <div style="font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:var(--green);letter-spacing:6px;text-shadow:0 0 24px rgba(61,255,110,0.4)">GAME TRACKER</div>
+    <div style="font-size:9px;color:var(--muted);letter-spacing:5px;margin-top:6px;">// SESSION OPTIMIZER // HUD v1.0</div>
   </div>
   <div style="max-width:900px;margin:0 auto;padding:0 24px 40px;">
     <div style="font-size:9px;color:var(--muted);letter-spacing:4px;margin-bottom:16px;">// SELECCIONA UN JUEGO</div>
@@ -38,9 +33,8 @@
   </div>
 </div>
 
-<!-- ════════ SCREEN: TRACKER ════════ -->
+<!-- SCREEN: TRACKER -->
 <div id="screen-tracker" style="display:none">
-
   <header class="hud-header">
     <div class="hud-title" onclick="goHome()" title="Volver al inicio">
       GAME TRACKER
@@ -61,7 +55,6 @@
       </div>
     </div>
   </header>
-
   <div class="session-bar">
     <div class="session-label">SESIÓN</div>
     <div class="session-timer-display" id="session-display">00:00</div>
@@ -80,7 +73,6 @@
     <button class="btn active" id="timer-btn" onclick="toggleTimer()">▶ INICIAR</button>
     <button class="btn danger" onclick="resetTimer()">↺ RESET</button>
   </div>
-
   <div class="main">
     <aside class="sidebar">
       <div class="sidebar-title">// CAPÍTULOS</div>
@@ -88,21 +80,18 @@
     </aside>
     <main class="content" id="main-content"></main>
   </div>
-
 </div>
 
 <div class="notify" id="notify"></div>
 
 <script>
-// Register Service Worker for PWA
+// Kill any cached service worker immediately
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(() => console.log('SW registered'))
-      .catch(e => console.warn('SW failed:', e));
-  });
+  navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+  caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
 }
 </script>
+<script src="js/logger.js"></script>
 <script src="js/tracker.js"></script>
 <script src="js/select.js"></script>
 </body>
