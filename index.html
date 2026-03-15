@@ -70,11 +70,13 @@
         <option value="90">90 min</option>
       </select>
     </div>
+    <button class="btn sidebar-toggle" onclick="toggleSidebar()">☰ CAPÍTULOS</button>
     <button class="btn active" id="timer-btn" onclick="toggleTimer()">▶ INICIAR</button>
     <button class="btn danger" onclick="resetTimer()">↺ RESET</button>
   </div>
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
   <div class="main">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="sidebar-title">// CAPÍTULOS</div>
       <div id="chapter-nav"></div>
     </aside>
