@@ -151,7 +151,7 @@ function renderNav() {
         <div class="chapter-nav-time">${fmtMin(chapterTotal(ch))}</div>
         <div class="chapter-nav-progress">${done}/${ch.segments.length}</div>
       </span>`;
-    el.onclick = () => { state.currentChapter = ch.id; save(); renderAll(); };
+    el.onclick = () => { state.currentChapter = ch.id; save(); renderAll(); closeSidebar(); };
     nav.appendChild(el);
   });
 }
@@ -288,6 +288,21 @@ function notify(msg) {
 
 // ─── RENDER ALL ───────────────────────────────────────────────────────────────
 function renderAll() { renderNav(); renderContent(); updateGlobalStats(); }
+
+// ─── SIDEBAR TOGGLE (MOBILE) ──────────────────────────────────────────────────
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const isOpen  = sidebar.classList.toggle('open');
+  overlay.classList.toggle('open', isOpen);
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  if (sidebar) sidebar.classList.remove('open');
+  if (overlay) overlay.classList.remove('open');
+}
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function fmtMin(m) {
