@@ -7,5 +7,15 @@
     "coverColor": "#1a8a35",
     "coverUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0720/eEczyEMDd2BLa3dtkGJVE9Id.png",
     "totalEstMin": 900
+  },
+  {
+    "id": "brawlstars",
+    "title": "Brawl Stars",
+    "platform": "MOBILE",
+    "file": null,
+    "coverColor": "#1a2a4a",
+    "coverUrl": "https://play-lh.googleusercontent.com/aRgBJQbcEkHh4LoUPi6J4zAJOJFyXfq2qUUMPVLGPGJGn2bwPMqjqv5hBqOdQMfO8g",
+    "totalEstMin": 0,
+    "type": "propass"
   }
 ]
