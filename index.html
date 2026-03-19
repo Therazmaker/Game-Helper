@@ -19,6 +19,19 @@
 <div class="hud-corner bl"></div>
 <div class="hud-corner br"></div>
 
+<!-- SCREEN: PRO PASS -->
+<div id="screen-propass" style="display:none">
+  <header class="hud-header">
+    <div class="hud-title" onclick="ppBack()" title="Volver al inicio">
+      GAME TRACKER
+      <span>// BRAWL STARS — PRO PASS</span>
+    </div>
+  </header>
+  <div style="max-width:700px;margin:0 auto;padding:18px 22px;">
+    <div id="pp-panel"></div>
+  </div>
+</div>
+
 <!-- SCREEN: SELECT -->
 <div id="screen-select">
   <div style="text-align:center;padding:48px 24px 28px;">
@@ -96,5 +109,18 @@ if ('serviceWorker' in navigator) {
 <script src="js/logger.js"></script>
 <script src="js/tracker.js"></script>
 <script src="js/select.js"></script>
+<script src="js/propass.js"></script>
+<script>
+function ppBack() {
+  document.getElementById('screen-propass').style.display = 'none';
+  document.getElementById('screen-select').style.setProperty('display','block','important');
+}
+function openProPass() {
+  document.getElementById('screen-select').style.display = 'none';
+  document.getElementById('screen-tracker').style.display = 'none';
+  document.getElementById('screen-propass').style.setProperty('display','block','important');
+  ppInit();
+}
+</script>
 </body>
 </html>
