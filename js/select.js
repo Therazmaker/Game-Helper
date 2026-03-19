@@ -72,18 +72,22 @@ function renderGameCards(games) {
         <div class="game-card-title">${g.title}</div>
         <div class="game-card-platform">${g.platform}</div>
         <div class="game-card-meta">
-          <span>~${fmtMinSelect(g.totalEstMin)}</span>
-          ${pct > 0 ? ` · <span style="color:var(--green)">${pct}% completado</span>` : ''}
+          ${g.type === 'propass'
+            ? `<span style="color:var(--amber)">// PRO PASS TRACKER</span>`
+            : `<span>~${fmtMinSelect(g.totalEstMin)}</span>${pct > 0 ? ` · <span style="color:var(--green)">${pct}% completado</span>` : ''}`
+          }
         </div>
       </div>`;
 
     card.querySelector('.game-card-body').addEventListener('click', () => {
       log('card clickeada: ' + g.id, 'info');
+      if (g.type === 'propass') { openProPass(); return; }
       loadGame(g.id, g.file);
     });
     card.querySelector('.game-card-cover').addEventListener('click', (e) => {
       if (!e.target.classList.contains('cover-edit-btn')) {
         log('cover clickeada: ' + g.id, 'info');
+        if (g.type === 'propass') { openProPass(); return; }
         loadGame(g.id, g.file);
       }
     });
