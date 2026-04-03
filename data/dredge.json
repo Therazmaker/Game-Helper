@@ -1,0 +1,268 @@
+{
+  "id": "dredge",
+  "title": "DREDGE",
+  "platform": "PS5",
+  "totalEstMin": 480,
+  "coverColor": "#0a1520",
+  "coverUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202212/0800/AilpvfhYKVPCDSGFtWGSfCdP.png",
+  "theme": "nautical-horror",
+  "tips": [
+    "El juego se AUTOGUARDA solo al atracar en un puerto. Si tu barco es destruido, perderás el progreso desde el último atraque.",
+    "Navegar de noche aumenta el PÁNICO. Con pánico alto aparecen alucinaciones: rocas falsas, tornados y monstruos.",
+    "Para pescar ABERRACIONES: completa el minijuego sin errores, o usa la habilidad Atrofia en un punto de pesca.",
+    "Las aberraciones brillan en azul sobre el agua. La noche, el equipo maldito y el pánico alto aumentan las probabilidades.",
+    "Usa el CATÁLOGO para ver qué peces te faltan: región, horario y equipo requerido para cada especie.",
+    "Los peces se degradan: Fresco → Rancio (60% valor) → Podrido (30%) → Sin valor. Vende rápido.",
+    "Atraca temporalmente para crear un punto de guardado antes de enfrentar zonas peligrosas.",
+    "El Mercante Viajero vende Metal Refinado y Piezas de Investigación (≈1 de cada uno por día).",
+    "Deja trampas de cangrejo como marcadores en el mapa para recordar buenos puntos de pesca.",
+    "El Collar de Pesca aumenta la velocidad de pesca. Apunta a 200% combinado para el trofeo.",
+    "La habilidad Atrofia garantiza casi siempre una aberración, aunque llegue rancia o podrida.",
+    "Para los trofeos de investigación: compra el equipo, desbloquea el trofeo y RECARGA antes de guardar para no gastar las Piezas."
+  ],
+  "zones": [
+    { "id": "marrows", "name": "Las Marrows", "color": "#2a5f3a", "biomes": ["Costera", "Superficial"], "unlock": "inicio" },
+    { "id": "gale", "name": "Acantilados Gale", "color": "#1a3a5c", "biomes": ["Costera", "Superficial", "Oceánica"], "unlock": "cap1" },
+    { "id": "stellar", "name": "Bahía Estelar", "color": "#3a1a5c", "biomes": ["Superficial", "Abisal", "Profunda"], "unlock": "cap2" },
+    { "id": "twisted", "name": "Pliegue Torcido", "color": "#5c3a1a", "biomes": ["Costera", "Manglar", "Oceánica"], "unlock": "cap3" },
+    { "id": "devils", "name": "Columna del Diablo", "color": "#5c1a1a", "biomes": ["Abisal", "Hadal", "Volcánica"], "unlock": "cap4" },
+    { "id": "pale", "name": "The Pale Reach (DLC)", "color": "#3a5c6a", "biomes": ["Hielo", "Costera"], "unlock": "dlc" },
+    { "id": "ironrig", "name": "The Iron Rig (DLC)", "color": "#4a4a1a", "biomes": ["Todas"], "unlock": "dlc2" }
+  ],
+  "chapters": [
+    {
+      "id": 0,
+      "name": "PRÓLOGO — Las Marrows",
+      "subtitle": "Aprende lo básico, conoce al Coleccionista",
+      "zone": "marrows",
+      "color": "#2a5f3a",
+      "segments": [
+        { "id": "m0", "name": "Llega al puerto de Greater Marrow, habla con el Guardafaro", "est": 10, "type": "story" },
+        { "id": "m1", "name": "Pesca costera básica — llena el inventario una vez", "est": 20, "type": "fish" },
+        { "id": "m2", "name": "Visita Little Marrow — conoce al Comerciante de Baratijas", "est": 10, "type": "explore" },
+        { "id": "m3", "name": "Ayuda al Constructor: consigue 2 Madera y 2 Chatarra (buceo cerca de Marrow)", "est": 20, "type": "collect" },
+        { "id": "m4", "name": "Lleva al Constructor a Steel Point — obtienes 2 Piezas de Investigación", "est": 10, "type": "quest" },
+        { "id": "m5", "name": "Habla con el Padre Afligido — recupera la Hebilla de Bronce (buceo al norte)", "est": 15, "type": "quest" },
+        { "id": "m6", "name": "Visita Blackstone Isle — entrega el pañuelo al Coleccionista, recibes la Grúa", "est": 15, "type": "story" }
+      ],
+      "objectives": [
+        "Desbloquear la Grúa de Buceo del Coleccionista",
+        "Conseguir al menos 2 Piezas de Investigación",
+        "Explorar todos los muelles de Las Marrows",
+        "Comprar mejora de espacio de carga en el Astillero"
+      ],
+      "keyItems": ["Grúa de Buceo", "Clave Ornamentada (bucea al sur de Greater Marrow)"]
+    },
+    {
+      "id": 1,
+      "name": "CAP 1 — La Clave · Acantilados Gale",
+      "subtitle": "Primera reliquia — zona sureste",
+      "zone": "gale",
+      "color": "#1a3a5c",
+      "segments": [
+        { "id": "g1", "name": "Navega al sureste hacia los Acantilados Gale", "est": 15, "type": "explore" },
+        { "id": "g2", "name": "Encuentra la Cerradura en los acantilados (sigue los puntos de buceo brillantes)", "est": 25, "type": "collect" },
+        { "id": "g3", "name": "Buceo activo en la zona — recoge piezas de investigación y chatarra", "est": 30, "type": "collect" },
+        { "id": "g4", "name": "Regresa con la reliquia al Coleccionista en Blackstone Isle", "est": 20, "type": "story" }
+      ],
+      "objectives": [
+        "Entregar La Clave al Coleccionista",
+        "Recibes la habilidad CELERIDAD",
+        "Explorar todos los muelles de Acantilados Gale",
+        "Investigar y equipar al menos 1 nueva caña de pescar"
+      ],
+      "keyItems": ["La Clave (reliquia)", "Habilidad: Celeridad"],
+      "trophyHint": "🏆 Entrega la Clave → trofeo automático"
+    },
+    {
+      "id": 2,
+      "name": "CAP 2 — La Caja de Música · Bahía Estelar",
+      "subtitle": "Segunda reliquia — zona norte",
+      "zone": "stellar",
+      "color": "#3a1a5c",
+      "segments": [
+        { "id": "s1", "name": "Navega al norte hasta Bahía Estelar", "est": 20, "type": "explore" },
+        { "id": "s2", "name": "Explora las ruinas del fondo — equipo Abisal necesario", "est": 35, "type": "collect" },
+        { "id": "s3", "name": "Localiza y recoge la Caja de Música (zona central de la bahía)", "est": 20, "type": "collect" },
+        { "id": "s4", "name": "Entrega la Caja de Música al Coleccionista", "est": 15, "type": "story" }
+      ],
+      "objectives": [
+        "Entregar La Caja de Música al Coleccionista",
+        "Recibes la habilidad MANIFESTACIÓN",
+        "Desbloquear el equipo de pesca Abisal",
+        "Encontrar el Altar Aberrante de Bahía Estelar (opcional)"
+      ],
+      "keyItems": ["La Caja de Música (reliquia)", "Habilidad: Manifestación"],
+      "trophyHint": "🏆 Entrega la Caja de Música → trofeo automático"
+    },
+    {
+      "id": 3,
+      "name": "CAP 3 — El Anillo · Pliegue Torcido",
+      "subtitle": "Tercera reliquia — zona oeste",
+      "zone": "twisted",
+      "color": "#5c3a1a",
+      "segments": [
+        { "id": "t1", "name": "Navega al oeste hasta el Pliegue Torcido", "est": 20, "type": "explore" },
+        { "id": "t2", "name": "Necesitas Red de Arrastre Costera — investiga antes de ir", "est": 15, "type": "collect" },
+        { "id": "t3", "name": "Pesca en aguas de Manglar (nueva bioma) — equipo especial", "est": 25, "type": "fish" },
+        { "id": "t4", "name": "Localiza el Anillo Brillante (zona sur de Pliegue Torcido)", "est": 20, "type": "collect" },
+        { "id": "t5", "name": "Entrega el Anillo al Coleccionista — recibes habilidad Atrofia", "est": 15, "type": "story" }
+      ],
+      "objectives": [
+        "Entregar El Anillo al Coleccionista",
+        "Recibes la habilidad ATROFIA (clave para aberraciones)",
+        "Necesitas Rod de Manglar para progresar",
+        "Visitar el Altar Aberrante del Pliegue Torcido (opcional)"
+      ],
+      "keyItems": ["El Anillo Brillante (reliquia)", "Habilidad: Atrofia"],
+      "trophyHint": "🏆 Entrega el Anillo → trofeo | ⚠️ Atrofia = clave para cazar aberraciones"
+    },
+    {
+      "id": 4,
+      "name": "CAP 4 — El Collar · Pliegue Torcido",
+      "subtitle": "Cuarta reliquia — sur del Pliegue",
+      "zone": "twisted",
+      "color": "#5c3a1a",
+      "segments": [
+        { "id": "t6", "name": "Regresa al Pliegue Torcido — zona sur (coordenadas marcadas)", "est": 20, "type": "explore" },
+        { "id": "t7", "name": "Necesitas Red de Arrastre Costera que drague aguas de Manglar", "est": 15, "type": "collect" },
+        { "id": "t8", "name": "Localiza el Collar Resplandeciente (zona sur)", "est": 25, "type": "collect" },
+        { "id": "t9", "name": "Entrega el Collar al Coleccionista — recibes habilidad Atrofia nivel 2", "est": 15, "type": "story" }
+      ],
+      "objectives": [
+        "Entregar El Collar al Coleccionista",
+        "Recibes habilidad DECADENCIA",
+        "Completar misiones secundarias del Pliegue Torcido"
+      ],
+      "keyItems": ["El Collar Resplandeciente (reliquia)", "Habilidad: Decadencia"],
+      "trophyHint": "🏆 Entrega el Collar → trofeo automático"
+    },
+    {
+      "id": 5,
+      "name": "CAP 5 — El Reloj · Columna del Diablo",
+      "subtitle": "Quinta reliquia — zona noreste peligrosa",
+      "zone": "devils",
+      "color": "#5c1a1a",
+      "segments": [
+        { "id": "d1", "name": "Navega al noreste — Columna del Diablo (zona volcánica)", "est": 20, "type": "explore" },
+        { "id": "d2", "name": "Equipa Línea Resistente al Calor para pescar en zonas volcánicas", "est": 15, "type": "collect" },
+        { "id": "d3", "name": "Encuentra las 3 Tablillas de Piedra (usa explosivos para despejar escombros)", "est": 40, "type": "collect" },
+        { "id": "d4", "name": "Lleva tablillas al Comerciante en Little Marrow — obtienes Tablilla Fundida", "est": 15, "type": "quest" },
+        { "id": "d5", "name": "Coloca la Tablilla Fundida en la Antigua Lighthouse (norte del Diablo)", "est": 20, "type": "story" },
+        { "id": "d6", "name": "Localiza el Reloj de Bolsillo y entrégalo al Coleccionista", "est": 20, "type": "story" },
+        { "id": "d7", "name": "DECISIÓN FINAL: El Coleccionista revela su plan — elige tu final", "est": 15, "type": "story" }
+      ],
+      "objectives": [
+        "Entregar El Reloj de Bolsillo al Coleccionista",
+        "Desbloquear las 2 Tablillas de Piedra en la Antigua Faro",
+        "Visitar TODOS los muelles del mapa (trofeo Safe Havens)",
+        "PREPARAR EXPLOSIVOS antes de ir — los necesitarás",
+        "¡OJO! Peces pegados al casco = atraen monstruo, navega rápido"
+      ],
+      "keyItems": ["El Reloj de Bolsillo (reliquia)", "Tablilla Fundida", "Llama del Cielo (luz)"],
+      "trophyHint": "🏆 Entrega el Reloj → trofeo | 🏆 Safe Havens = visita todo | 2 FINALES posibles"
+    },
+    {
+      "id": 6,
+      "name": "POSTGAME — Peces y Aberraciones",
+      "subtitle": "Completa la enciclopedia — Platino",
+      "zone": "marrows",
+      "color": "#1a2a3a",
+      "segments": [
+        { "id": "post1", "name": "Revisa tu enciclopedia — identifica especies faltantes por zona", "est": 20, "type": "collect" },
+        { "id": "post2", "name": "Acantilados Gale: pesca Oceánica con Red de Arrastre Pesada", "est": 30, "type": "fish" },
+        { "id": "post3", "name": "Bahía Estelar: peces Abisales y Hadales nocturnos", "est": 30, "type": "fish" },
+        { "id": "post4", "name": "Pliegue Torcido: peces de Manglar (día y noche)", "est": 25, "type": "fish" },
+        { "id": "post5", "name": "Columna del Diablo: peces Volcánicos con Línea Resistente al Calor", "est": 25, "type": "fish" },
+        { "id": "post6", "name": "Caza de aberraciones con Atrofia (usa en cada punto de pesca)", "est": 40, "type": "fish" },
+        { "id": "post7", "name": "Peces Exóticos únicos: Pez Remo (P3), Anguila (F4), Pez Tigre (E12), Celacanto (Q13)", "est": 30, "type": "fish" },
+        { "id": "post8", "name": "Completa todas las misiones secundarias (trofeo Providencia)", "est": 35, "type": "quest" },
+        { "id": "post9", "name": "Investiga todo el equipo — trofeos de investigación completa", "est": 25, "type": "collect" }
+      ],
+      "objectives": [
+        "128 especies totales en el juego base",
+        "84 aberraciones — usa Atrofia para garantizarlas",
+        "Peces Exóticos se venden por $250 (o $700 con DLC Iron Rig)",
+        "Velocidad de pesca combinada: 200% (trofeo)",
+        "Velocidad de motor: 75kn (trofeo)",
+        "Luminosidad combinada: 3000 lúmenes (trofeo)"
+      ],
+      "trophyHint": "🏆 Master Angler = todas las especies | 🏆 Imán de Aberraciones = todas las aberraciones"
+    },
+    {
+      "id": 7,
+      "name": "DLC — The Pale Reach",
+      "subtitle": "Bioma de Hielo — 11 especies + 12 aberraciones",
+      "zone": "pale",
+      "color": "#3a5c6a",
+      "segments": [
+        { "id": "pr1", "name": "Navega al sur — localiza el bioma de hielo (visible desde el inicio)", "est": 15, "type": "explore" },
+        { "id": "pr2", "name": "Campamento Central: busca el Diario del Capitán (3/9 entradas)", "est": 20, "type": "story" },
+        { "id": "pr3", "name": "Alimenta al Narval en la estación — desbloquea canales de hielo", "est": 15, "type": "quest" },
+        { "id": "pr4", "name": "Zona Oeste: Diario de Cuero (6/9) + mitad del Rompehielos", "est": 20, "type": "collect" },
+        { "id": "pr5", "name": "Zona Este: Diario Raído (9/9) + otra mitad del Rompehielos", "est": 20, "type": "collect" },
+        { "id": "pr6", "name": "Ensambla el Rompehielos en el Taller de Hielo", "est": 10, "type": "collect" },
+        { "id": "pr7", "name": "Encuentra el Escultor de Hielo — completa la misión Under the Ice", "est": 25, "type": "story" },
+        { "id": "pr8", "name": "Pesca todas las especies de hielo (Char = Costera, no de Hielo)", "est": 40, "type": "fish" },
+        { "id": "pr9", "name": "Calamar Colosal: necesitas Red Radiante (recompensa historia)", "est": 20, "type": "fish" }
+      ],
+      "objectives": [
+        "Completar Under the Ice (historia del DLC)",
+        "Capturar todas las 11 especies de Pale Reach",
+        "Capturar las 12 aberraciones (incluyendo Calamar Colosal)",
+        "El Tiburón Dormilón está solo en G-7 al sur de Southern Locus",
+        "El Char usa caña Costera, NO de Hielo — ¡no lo olvides!"
+      ],
+      "trophyHint": "🏆 Icebreaker | 🏆 Criatura Colosal | 🏆 Naturalista Polar"
+    },
+    {
+      "id": 8,
+      "name": "DLC — The Iron Rig",
+      "subtitle": "Plataforma petrolífera — 25 especies nuevas",
+      "zone": "ironrig",
+      "color": "#4a4a1a",
+      "segments": [
+        { "id": "ir1", "name": "Localiza la plataforma Iron Rig en el mapa", "est": 15, "type": "explore" },
+        { "id": "ir2", "name": "Recoge 2 Cajas Ironhaven — construye el Generador (trofeo Envío Perdido)", "est": 25, "type": "collect" },
+        { "id": "ir3", "name": "Habla con el Científico — investiga el Laboratorio de Ciencias", "est": 20, "type": "story" },
+        { "id": "ir4", "name": "Pesca 3 peces + 1 crustáceo de CADA bioma principal para el Científico", "est": 45, "type": "fish" },
+        { "id": "ir5", "name": "Construye todos los niveles de todos los edificios (trofeo Expansión)", "est": 30, "type": "collect" },
+        { "id": "ir6", "name": "Instala el Dragador de Sifón desde la Fábrica", "est": 20, "type": "collect" },
+        { "id": "ir7", "name": "Recoge 10 Canisters Oscuros con el Dragador de Sifón", "est": 25, "type": "collect" },
+        { "id": "ir8", "name": "Sabotea o Defiende la plataforma — evento final", "est": 20, "type": "story" },
+        { "id": "ir9", "name": "Mejora el casco al Nivel 5 con Fleet Services", "est": 15, "type": "collect" }
+      ],
+      "objectives": [
+        "Completar la historia del Iron Rig",
+        "Capturar las 25 nuevas especies (5 por bioma principal)",
+        "Capturar las 30 aberraciones nuevas",
+        "Desbloquear Factory Tier IV = Cebo Exótico para peces únicos",
+        "El Goliath Gleaming requiere Modo Normal (no Pasivo)"
+      ],
+      "trophyHint": "🏆 Envío Perdido | 🏆 Expansión Completa | 🏆 Goliath Gleaming (modo normal)"
+    }
+  ],
+  "trophies": [
+    { "id": "tr1", "name": "Platino", "desc": "Obtén todos los trofeos", "type": "platinum", "done": false },
+    { "id": "tr2", "name": "Master Angler", "desc": "Captura todas las especies de peces", "type": "gold", "done": false },
+    { "id": "tr3", "name": "Imán de Aberraciones", "desc": "Captura todas las aberraciones", "type": "gold", "done": false },
+    { "id": "tr4", "name": "Providencia", "desc": "Completa todas las misiones secundarias", "type": "silver", "done": false },
+    { "id": "tr5", "name": "Safe Havens", "desc": "Visita todos los muelles del juego", "type": "silver", "done": false },
+    { "id": "tr6", "name": "Sirviente de los Santuarios", "desc": "Resuelve todos los puzzles del santuario de peces", "type": "silver", "done": false },
+    { "id": "tr7", "name": "Barco Completo", "desc": "Equipa todos los slots de tu barco", "type": "bronze", "done": false },
+    { "id": "tr8", "name": "Todo Investigado: Cañas", "desc": "Investiga todas las cañas de pescar", "type": "bronze", "done": false },
+    { "id": "tr9", "name": "Todo Investigado: Redes", "desc": "Investiga todas las redes", "type": "bronze", "done": false },
+    { "id": "tr10", "name": "Todo Investigado: Trampas", "desc": "Investiga todas las trampas de cangrejo", "type": "bronze", "done": false },
+    { "id": "tr11", "name": "Todo Investigado: Motores", "desc": "Investiga todos los motores", "type": "bronze", "done": false },
+    { "id": "tr12", "name": "Celeridad Veloz", "desc": "Mantén el indicador de Celeridad >50% durante 10 segundos", "type": "bronze", "done": false },
+    { "id": "tr13", "name": "Manifestación Larga", "desc": "Viaja gran distancia con Manifestación", "type": "bronze", "done": false },
+    { "id": "tr14", "name": "Exterminador de Amenazas", "desc": "Destierra 10 amenazas", "type": "bronze", "done": false },
+    { "id": "tr15", "name": "Atrofia Lejana", "desc": "Usa Atrofia en un punto de pesca lejano", "type": "bronze", "done": false },
+    { "id": "tr16", "name": "Eco de Sirena", "desc": "Escucha el eco del cuerno de niebla", "type": "bronze", "done": false },
+    { "id": "tr17", "name": "Espía de Biomas", "desc": "Avista peces de cada categoría con el catalejo", "type": "bronze", "done": false },
+    { "id": "tr18", "name": "Cebo Mixto", "desc": "Atrae 3 especies distintas a un punto con Cebo Mixto", "type": "bronze", "done": false },
+    { "id": "tr19", "name": "Velocidad 200%", "desc": "Alcanza 200% de velocidad de pesca combinada", "type": "bronze", "done": false },
+    { "id": "tr20", "name": "Motor 75kn", "desc": "Alcanza 75kn de velocidad de motor combinada", "type": "bronze", "done": false },
+    { "id": "tr21", "name": "Luz 3000 lúmenes", "desc": "Alcanza 3000 lúmenes de luz combinada", "type": "bronze", "done": false }
+  ]
+}

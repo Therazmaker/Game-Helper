@@ -1,5 +1,15 @@
 [
   {
+    "id": "dredge",
+    "title": "DREDGE",
+    "platform": "PS5",
+    "file": "data/dredge.json",
+    "coverColor": "#0a1520",
+    "coverUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202212/0800/AilpvfhYKVPCDSGFtWGSfCdP.png",
+    "totalEstMin": 480,
+    "type": "dredge"
+  },
+  {
     "id": "tlou1",
     "title": "The Last of Us Part I",
     "platform": "PS5",

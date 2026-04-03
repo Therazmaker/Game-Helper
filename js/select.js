@@ -82,12 +82,14 @@ function renderGameCards(games) {
     card.querySelector('.game-card-body').addEventListener('click', () => {
       log('card clickeada: ' + g.id, 'info');
       if (g.type === 'propass') { openProPass(); return; }
+      if (g.type === 'dredge') { window.location.href = 'dredge.html'; return; }
       loadGame(g.id, g.file);
     });
     card.querySelector('.game-card-cover').addEventListener('click', (e) => {
       if (!e.target.classList.contains('cover-edit-btn')) {
         log('cover clickeada: ' + g.id, 'info');
         if (g.type === 'propass') { openProPass(); return; }
+        if (g.type === 'dredge') { window.location.href = 'dredge.html'; return; }
         loadGame(g.id, g.file);
       }
     });
